@@ -6,6 +6,11 @@
     <title>Ryzyk Fizyk</title>
 </head>
 <body>
+    <?php 
+    $dblink=mysqli_connect("localhost","root","","questions");
+    $query=mysqli_query($dblink,"SELECT MAX(id) FROM questions;");
+    $numOfQuestions=mysqli_fetch_array($query)[0];
+    ?>
     <header>
         <h1>Pytanie [number]: [question]</h1>
     </header>
@@ -32,5 +37,35 @@
             <input type="submit" id="answerform" value="potwierdź odpowiedź">
         </div>
     </menu>
+    <script>
+        function startGame(){
+    const questions= [
+        <?php 
+        $last=-14;
+        for($i=0;$i<7;$i++){
+            do{
+                $randm=rand(1,111);
+            }while($randm==$last);
+            $question=mysqli_fetch_array(mysqli_query($dblink,"SELECT q FROM questions;"))[0]
+            
+            
+            
+            
+        }
+    
+    ?>
+    ];
+    for(let questionNum=1;questionNum<=7;questionNum++){
+        nextQuestion();
+        anwserPhase();
+        betPhase();
+        sumupRound();
+    }
+}
+function bajojajo(){
+    console.log(bajo);
+}
+
+    </script>
 </body>
 </html>

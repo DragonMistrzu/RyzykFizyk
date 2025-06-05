@@ -1,8 +1,12 @@
-
 function startGame(){
-    for(let questionNum=1;)
-nextQuestion();
-anwserPhase();
-betPhase();
-sumupRound();
+    const questions= [];
+    for(let questionNum=1;questionNum<=7;questionNum++){
+        nextQuestion();
+        anwserPhase();
+        betPhase();
+        sumupRound();
+    }
+}
+function bajojajo(){
+    console.log(bajo);
 }
