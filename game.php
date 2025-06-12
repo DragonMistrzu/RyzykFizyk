@@ -41,26 +41,32 @@
         function startGame(){
     const questions= [
         <?php 
-        $last=-14;
+        $last=-1;
+        $ids=[];
         for($i=0;$i<7;$i++){
             do{
                 $randm=rand(1,111);
             }while($randm==$last);
-            $question=mysqli_fetch_array(mysqli_query($dblink,"SELECT q FROM questions;"))[0]
-            
+            array_push($ids,$randm);
+            $question=mysqli_fetch_array(mysqli_query($dblink,"SELECT content FROM questions WHERE id=".$randm.";"))[0];
+            echo('"'.$question.'"');
+            if($i!=6){
+                echo(",");
+            }
             
             
             
         }
     
     ?>
+    
     ];
-    for(let questionNum=1;questionNum<=7;questionNum++){
-        nextQuestion();
-        anwserPhase();
-        betPhase();
-        sumupRound();
-    }
+   // for(let questionNum=1;questionNum<=7;questionNum++){
+   //     nextQuestion();
+   //     anwserPhase();
+   //     betPhase();
+   //     sumupRound();
+   // }
 }
 function bajojajo(){
     console.log(bajo);
